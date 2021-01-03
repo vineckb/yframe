@@ -1,8 +1,8 @@
 {
-  "name": "core-setup-app",
+  "name": "yframe",
   "productName": "core-setup-app",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "WebBroser made with electronjs",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
