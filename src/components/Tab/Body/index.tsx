@@ -1,16 +1,8 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
 import { useStateContext } from '../../../store';
 import { ActionType } from '../../../store/types';
-import Webview from '../../Webview';
 import AddressBar from '../../AddressBar';
-
-export const TabContainer = styled.div`
-  position: absolute;
-  top: 30px;
-  left: 0;
-  width: 100%;
-`;
+import { Page, TabContainer } from './styles'
 
 interface Props {
   index: number;
@@ -57,7 +49,7 @@ const TabBody: FC<Props> = ({ index }) => {
         <TabContainer>
           <AddressBar index={index} />
 
-          <Webview
+          <Page
             url={url}
             onStartLoading={handleStartLoading}
             onStopLoading={handleStopLoading}

@@ -3,7 +3,11 @@ import Reducer from './reducer';
 import { State, Action } from './types';
 
 const initialState: State = {
-  tabs: [],
+  tabs: [{
+    title: 'New Tab',
+    url: '',
+    loading: false
+  }],
   currentTab: 0
 }
 export interface Store {
