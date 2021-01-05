@@ -14,7 +14,7 @@ const Reducer = (state: State, action: Action) => {
         tabs: [...state.tabs, newTab]
       }
     case ActionType.GO_TO:
-      const nState = {
+      return {
         ...state,
         tabs: state.tabs.map((tab, index) => {
           if (index === action.payload.index)
@@ -23,7 +23,26 @@ const Reducer = (state: State, action: Action) => {
             return tab
         })
       }
-      return nState
+    case ActionType.LOAD_START:
+      return {
+        ...state,
+        tabs: state.tabs.map((tab, index) => {
+          if (index === action.payload)
+            return { ...tab, loading: true }
+          else
+            return tab
+        })
+      }
+    case ActionType.LOAD_STOP:
+      return {
+        ...state,
+        tabs: state.tabs.map((tab, index) => {
+          if (index === action.payload)
+            return { ...tab, loading: false }
+          else
+            return tab
+        })
+      }
   }
 };
 
