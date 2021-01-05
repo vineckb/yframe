@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useStateContext } from '../../../store';
+import { ActionType } from '../../../store/types';
 import styled from 'styled-components';
 
 const Element = styled.div`
@@ -11,12 +12,20 @@ interface Props {
 }
 
 const Title: FC<Props> = ({ index }) => {
-  const { state } = useStateContext();
+  const { state, dispatch } = useStateContext();
   const { title } = state.tabs[index];
+
+  const closeTab = () => {
+    dispatch({
+      type: ActionType.CLOSE_TAB,
+      payload: index
+    })
+  }
 
   return (
     <Element>
       {title}
+      <button onClick={closeTab}>x</button>
     </Element>
   )
 }
