@@ -1,21 +1,16 @@
 import React, { useState, FC } from 'react';
 import { hot } from 'react-hot-loader';
-import Webview from './components/Webview';
-import AddressBar from './components/AddressBar';
+import Tabs from './components/Tabs/index';
+import Store, { useStateContext } from './store';
 
 const App: FC = () => {
-  const [url, setURL] = useState<string>('');
-
-  const handleURLSubmit = (url: string) => {
-    setURL(url)
-  }
+  const tabs = [1];
+  const { dispatch } = useStateContext();
 
   return (
-    <>
-      <AddressBar onSubmit={handleURLSubmit} />
-
-      <Webview url={url} />
-    </>
+    <Store>
+      <Tabs />
+    </Store>
   )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled('webview')`
@@ -12,7 +12,9 @@ interface WebviewProps {
 };
 
 const Webview: React.FC<WebviewProps> = ({ url }) => {
-  return <Wrapper src={url} />
+  const ref = useRef(null)
+
+  return <Wrapper src={url} ref={ref} />
 };
 
 export default Webview;
