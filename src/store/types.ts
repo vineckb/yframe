@@ -13,10 +13,12 @@ export interface Tab {
 
 export enum ActionType {
   NEW_TAB = 'New Tab',
+  LOAD_START = 'Start loading',
+  LOAD_STOP = 'Stop loading',
   GO_TO = 'Navigate to URL',
 }
 
 export type Action = {
-  type: ActionType.NEW_TAB | ActionType.GO_TO;
+  type: ActionType.NEW_TAB | ActionType.LOAD_START | ActionType.LOAD_STOP | ActionType.GO_TO;
   payload?: any;
 }

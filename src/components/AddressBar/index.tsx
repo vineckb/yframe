@@ -1,25 +1,30 @@
-import React, { FC, useState, ChangeEvent, FormEvent } from 'react';
+import React, { FC, useState, ChangeEvent, FormEvent, useEffect } from 'react';
 
 interface AddressBarProps {
+  url: string;
   onSubmit: (url: String) => void;
 }
 
-const AddressBar: FC<AddressBarProps> = ({ onSubmit }) => {
-  const [url, setURL] = useState<string>('');
+const AddressBar: FC<AddressBarProps> = ({ onSubmit, url }) => {
+  const [localURL, setLocalURL] = useState<string>(url);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setURL(e.target.value);
+    setLocalURL(e.target.value);
   }
+
+  useEffect(() => {
+    setLocalURL(url);
+  }, [url]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    onSubmit(url);
+    onSubmit(localURL);
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={url} onChange={handleChange} />
+      <input type="text" value={localURL} onChange={handleChange} />
 
       <button type="submit">go</button>
     </form>
