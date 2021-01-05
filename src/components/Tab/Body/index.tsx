@@ -44,19 +44,15 @@ const TabBody: FC<Props> = ({ index }) => {
   };
 
   return (
-    <>
-      { isCurrent &&
-        <TabContainer>
-          <AddressBar index={index} />
+    <TabContainer show={isCurrent}>
+      <AddressBar index={index} />
 
-          <Page
-            url={url}
-            onStartLoading={handleStartLoading}
-            onStopLoading={handleStopLoading}
-            onWillNavigate={handleWillNavigate} />
-        </TabContainer>
-      }
-    </>
+      <Page
+        url={url}
+        onStartLoading={handleStartLoading}
+        onStopLoading={handleStopLoading}
+        onWillNavigate={handleWillNavigate} />
+    </TabContainer>
   )
 }
 

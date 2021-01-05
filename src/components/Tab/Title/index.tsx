@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, MouseEvent } from 'react';
 import { useStateContext } from '../../../store';
 import { ActionType } from '../../../store/types';
 import { Element } from './styles'
@@ -12,15 +12,24 @@ const Title: FC<Props> = ({ index }) => {
   const { title } = state.tabs[index];
   const active = state.currentTab === index;
 
-  const closeTab = () => {
+  const closeTab = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
     dispatch({
       type: ActionType.CLOSE_TAB,
       payload: index
     })
   }
 
+  const openTab = () => {
+    dispatch({
+      type: ActionType.SWITCH_TAB,
+      payload: index
+    })
+  }
+
   return (
-    <Element active={active}>
+    <Element active={active} onClick={openTab}>
       {title}
       <button onClick={closeTab}>x</button>
     </Element>
