@@ -43,6 +43,11 @@ const Reducer = (state: State, action: Action) => {
             return tab
         })
       }
+    case ActionType.CLOSE_TAB:
+      return {
+        ...state,
+        tabs: state.tabs.filter((tab, index) => index !== action.payload)
+      }
   }
 };
 
