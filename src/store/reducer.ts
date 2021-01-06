@@ -3,15 +3,18 @@ import { State, Action, Tab, ActionType } from './types';
 const Reducer = (state: State, action: Action) => {
   switch (action.type) {
     case ActionType.NEW_TAB:
-      const newTab: Tab = {
-        title: 'New Tab',
-        url: '',
-        loading: false
-      }
-
       return {
         ...state,
-        tabs: [...state.tabs, newTab]
+        tabs: [...state.tabs, {
+          title: 'New Tab',
+          url: '',
+          loading: false
+        }]
+      }
+    case ActionType.SWITCH_TAB:
+      return {
+        ...state,
+        currentTab: action.payload
       }
     case ActionType.GO_TO:
       return {

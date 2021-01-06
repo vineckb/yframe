@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled('webview')`
-  width: 100vw;
-  height: 100vh;
   display: flex;
+  width: 100%;
+  height: 100%;
 `;
 
 interface WebviewProps {

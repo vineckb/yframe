@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react';
 import Tab from '../Tab';
 import { useStateContext } from '../../store';
 import { ActionType } from '../../store/types';
+import { Wrapper, NewTabButton } from './styles';
 
 const Tabs: FC = () => {
   const { dispatch, state } = useStateContext();
@@ -13,10 +14,10 @@ const Tabs: FC = () => {
   }
 
   return (
-    <>
-      <button onClick={addTab}>+</button>
+    <Wrapper>
       {state.tabs.map((_, index) => <Tab key={index} index={index} />)}
-    </>
+      <NewTabButton onClick={addTab}>+</NewTabButton>
+    </Wrapper>
   )
 }
 

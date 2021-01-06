@@ -1,6 +1,7 @@
 import React, { FC, useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { useStateContext } from '../../store'
 import { ActionType } from '../../store/types'
+import { Form, Input, Button } from './styles'
 
 interface Props {
   index: number;
@@ -35,11 +36,11 @@ const AddressBar: FC<Props> = ({ index }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={url} onChange={handleChange} />
+    <Form onSubmit={handleSubmit}>
+      <Input type="text" value={url} onChange={handleChange} />
 
-      <button type="submit">go</button>
-    </form>
+      <Button type="submit">go</Button>
+    </Form>
   )
 }
 
