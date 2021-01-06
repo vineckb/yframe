@@ -1,12 +1,13 @@
 import React, { useReducer, createContext, useContext } from 'react';
 import Reducer from './reducer';
-import { State, Action } from './types';
+import { State, Action, TabType } from './types';
 
 const initialState: State = {
   tabs: [{
     title: 'New Tab',
     url: '',
-    loading: false
+    loading: false,
+    type: TabType.SINGLE
   }],
   currentTab: 0
 }

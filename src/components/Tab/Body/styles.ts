@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import Webview from '../../Webview';
 
-interface TabContainerProps {
+interface WrapperProps {
   show: boolean;
 }
 
-export const TabContainer = styled.div<TabContainerProps>`
+export const Wrapper = styled.div<WrapperProps>`
   position: absolute;
   top: 30px;
   left: 0;
@@ -15,7 +14,7 @@ export const TabContainer = styled.div<TabContainerProps>`
   display: ${props => props.show ? 'flex' : 'none'};
 `;
 
-export const Page = styled(Webview)`
+export const Container = styled.div`
   flex: 1;
   width: 100%;
   height: auto;

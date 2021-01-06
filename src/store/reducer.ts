@@ -1,4 +1,4 @@
-import { State, Action, Tab, ActionType } from './types';
+import { State, Action, TabType, ActionType } from './types';
 
 const Reducer = (state: State, action: Action) => {
   switch (action.type) {
@@ -8,7 +8,8 @@ const Reducer = (state: State, action: Action) => {
         tabs: [...state.tabs, {
           title: 'New Tab',
           url: '',
-          loading: false
+          loading: false,
+          type: TabType.SINGLE
         }]
       }
     case ActionType.SWITCH_TAB:
