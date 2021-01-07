@@ -10,15 +10,19 @@ const Tabs: FC = () => {
   const addTab = () => {
     dispatch({
       type: ActionType.NEW_TAB
-    })
-  }
+    });
+    dispatch({
+      type: ActionType.SWITCH_TAB,
+      payload: state.tabs.length
+    });
+  };
 
   return (
     <Wrapper>
       {state.tabs.map((_, index) => <Tab key={index} index={index} />)}
       <NewTabButton onClick={addTab}>+</NewTabButton>
     </Wrapper>
-  )
-}
+  );
+};
 
 export default Tabs;

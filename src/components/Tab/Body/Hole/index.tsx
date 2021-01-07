@@ -2,7 +2,11 @@ import React, { FC, useState } from 'react';
 import { FrameProps } from '../../../Portal/Frame';
 import Portal from '../../../Portal';
 
-const TabHole: FC = () => {
+type HoleTabBodyProps = {
+  index: number;
+}
+
+const HoleTabBody: FC<HoleTabBodyProps> = () => {
 
   const [frames, setFrames] = useState<Array<FrameProps>>([{
     url: 'http://youtube.com',
@@ -27,4 +31,4 @@ const TabHole: FC = () => {
   );
 };
 
-export default TabHole;
+export default HoleTabBody;

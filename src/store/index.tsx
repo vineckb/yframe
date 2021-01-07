@@ -7,7 +7,7 @@ const initialState: State = {
     title: 'New Tab',
     url: '',
     loading: false,
-    type: TabType.SINGLE
+    type: TabType.HOLE
   }],
   currentTab: 0
 }
