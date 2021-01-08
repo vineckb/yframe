@@ -8,26 +8,23 @@ type HoleTabBodyProps = {
 
 const HoleTabBody: FC<HoleTabBodyProps> = () => {
 
-  const [frames, setFrames] = useState<Array<FrameProps>>([{
-    url: 'http://youtube.com',
-    width: 500,
-    height: 300,
-    top: 150,
-    left: 300,
-  }, {
-    url: 'http://youtube.com',
-    width: 500,
-    height: 300,
-    top: 1000,
-    left: 1500,
-  }])
+  const [frames, setFrames] = useState<Array<FrameProps>>([])
 
   const handleAddFrame = (frame: FrameProps) => {
     setFrames([...frames, frame])
   }
 
+  const handleUpdateFrame = (index: number, frame: FrameProps) => {
+    setFrames([...frames.map((_, i) => index === i ? frame : _)])
+  }
+
   return (
-    <Portal frames={frames} onAddFrame={handleAddFrame}></Portal>
+    <>
+      <Portal
+        frames={frames}
+        onAddFrame={handleAddFrame}
+        onUpdateFrame={handleUpdateFrame} />
+    </>
   );
 };
 
